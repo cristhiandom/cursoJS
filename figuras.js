@@ -27,6 +27,10 @@ function areaTriangulo (baseT, alturaT){
     return (baseT * alturaT)/2;
 } 
 
+function alturaTriangulo (lado1, lado2, base){
+    return Math.sqrt(lado1 * lado2 - (base*base/4))
+}
+
 console.groupEnd();
 
 //código del círculo
@@ -87,11 +91,27 @@ function calcularAreaTriangulo(){
     alert("El area de tu triangulo es: " + area);
 }
 
+//Triangulo isosceles
+function calcularAlturaTriangulo(){
+    const inputBase = document.getElementById("InputTIBase");
+    const valueBase = parseInt(inputBase.value);
+    const inputLado1 = document.getElementById("InputTILado1");
+    const valueLado1 = parseInt(inputLado1.value);
+    const inputLado2 = document.getElementById("InputTILado2");
+    const valueLado2 = parseInt(inputLado2.value);
+    const altura = alturaTriangulo(valueLado1, valueLado2, valueBase);
+    if (valueLado1 == valueLado2) {
+        alert("La altura de tu triangulo es: " + altura);
+    } else {
+        alert("Las medidas que agregaste no son las de un triangulo isosceles, vuelve a intentarlo");
+    }
+}
+
+
 //Circulo
 function calcularPerimetroCirculo(){
     const input = document.getElementById("InputRadio");
     const value = input.value;
-    const diametro = diametroCirculo(value);
     const perimetro = perimetroCirculo(value);
     alert("El perimetro de tu cuadrado es: " + perimetro);
 }
